@@ -1,0 +1,16 @@
+{
+  "name": "resizable_iframe",
+  "version": "1.0.0",
+  "description": "Client code for resizable iframe'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "2.3.3",
+    "browserify": "11.2.0",
+    "expect.js": "*"
+  }
+}

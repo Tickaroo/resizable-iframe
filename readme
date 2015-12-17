@@ -1,0 +1,23 @@
+Exports a function that tells informs its frame parent about size changes. should be called on your document ready method. Can also be stopped if needed.
+
+Usage:
+
+    
+    // require it
+    var resizable_iframe = require('resizable_iframe');
+    
+    // create a new instance on domready. it will be started automatically
+    var instance;
+    domready(function() {
+      instance = new resizable_iframe();
+    });
+    
+    // it can be stopped at any type
+    onSomeEvent(function() {
+      instance.stop();
+    })
+    
+    // and later restarted
+    onSomeEvent(function() {
+      instance.start();
+    })
