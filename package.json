@@ -1,7 +1,7 @@
 {
   "name": "resizable-iframe",
   "version": "1.0.0",
-  "description": "Lib to delegate size of an iframe to the parent window",
+  "description": "Library to delegate size of an iframe to the parent window",
   "homepage": "https://github.com/Tickaroo/resizable-iframe",
   "author": "Anton Pawlik <anton.pawlik@gmail.com> (http://antpaw.org)",
   "license": "MIT",

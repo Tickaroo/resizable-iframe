@@ -1,7 +1,7 @@
 # resizable-iframe
 [![npm version](https://badge.fury.io/js/resizable-iframe.svg)](https://www.npmjs.com/package/resizable-iframe) [![Build Status](https://travis-ci.org/Tickaroo/resizable-iframe.svg?branch=master)](https://travis-ci.org/Tickaroo/resizable-iframe) [![codecov.io](https://codecov.io/github/Tickaroo/resizable-iframe/coverage.svg?branch=master)](https://codecov.io/github/Tickaroo/resizable-iframe?branch=master)
 
-Lib to delegate size of an iframe to the parent window.
+Library to delegate size of an iframe to the parent window.
 
 ## Install
 
