@@ -1,0 +1,13 @@
+{
+  "undef": true,
+  "unused": true,
+  "mocha": true,
+  "node": true,
+  "browser": true,
+  "indent": 2,
+  "eqeqeq": true,
+  "maxlen": 130,
+  "trailing": true,
+  "latedef": true,
+  "curly": true
+}

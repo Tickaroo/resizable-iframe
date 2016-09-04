@@ -1,18 +1,17 @@
+var calculateHeight;
 var isIE = !!navigator.userAgent.toLowerCase().match(/trident/);
 
-var calculateHeight = function() {};
-
-if(isIE) {
+if (isIE) {
   calculateHeight = function() {
-   if(document.body) {
+   if (document.body) {
      return document.body.clientHeight + 30;
    } else {
      return -1;
    }
- }; 
+ };
 } else {
   calculateHeight = function() {
-    if(document.documentElement) {
+    if (document.documentElement) {
       return document.documentElement.getBoundingClientRect().height;
     } else {
       return -1;
@@ -20,42 +19,47 @@ if(isIE) {
   };
 }
 
-resizable_iframe = function() {
+var ResizableIframe = function(options) {
+  options = options || {};
+  this.options = {
+    nameKey: options.nameKey || 'iframeName',
+    heightKey: options.heightKey || 'iframeHeight',
+    intervalDuration: options.intervalDuration || 1000
+  };
   this.knownHeight = 0;
   this.start();
 };
 
-resizable_iframe.prototype.checkHeight = function() {
+ResizableIframe.prototype.checkHeight = function() {
   var newHeight = calculateHeight();
-  if(newHeight != -1 && newHeight != this.knownHeight) {
+  if (newHeight !== -1 && newHeight !== this.knownHeight) {
+    var sizeObject = {};
+    sizeObject[this.options.nameKey] = window.name;
+    sizeObject[this.options.heightKey] = newHeight;
 
-    var message = JSON.stringify({
-      tikEmbedIframeName: window.name,
-      tikEmbedIframeHeight: newHeight
-    });
-
-    parent.postMessage(message, "*")
-
+    if (window.parent && parent.postMessage) {
+      parent.postMessage(JSON.stringify(sizeObject), '*');
+    }
     this.knownHeight = newHeight;
   }
 };
 
 
-resizable_iframe.prototype.start = function() {
-  if(!this.interval) {
+ResizableIframe.prototype.start = function() {
+  if ( ! this.interval) {
     this.checkHeight();
     var self = this;
     this.interval = setInterval(function() {
       self.checkHeight();
-    }, 1000);
+    }, this.options.intervalDuration);
   }
 };
 
-resizable_iframe.prototype.stop = function() {
-  if(this.interval) {
-    clearInterval(interval);
+ResizableIframe.prototype.stop = function() {
+  if (this.interval) {
+    clearInterval(this.interval);
     this.interval = null;
   }
 };
 
-module.exports = resizable_iframe;
+module.exports = ResizableIframe;

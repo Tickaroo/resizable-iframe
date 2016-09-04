@@ -1,16 +1,41 @@
 {
-  "name": "resizable_iframe",
+  "name": "resizable-iframe",
   "version": "1.0.0",
-  "description": "Client code for resizable iframe'",
-  "main": "index.js",
+  "description": "Lib to delegate size of an iframe to the parent window",
+  "homepage": "https://github.com/Tickaroo/resizable-iframe",
+  "author": "Anton Pawlik <anton.pawlik@gmail.com> (http://antpaw.org)",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "iframe",
+    "size"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/Tickaroo/resizable-iframe.git"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "npm run build -- --watch",
+    "test": "mocha",
+    "testdbg": "mocha --debug-brk",
+    "lint": "jshint **.js **/*.js **/**/*.js",
+    "coverage": "istanbul cover node_modules/.bin/_mocha"
+  },
   "devDependencies": {
-    "mocha": "2.3.3",
-    "browserify": "11.2.0",
-    "expect.js": "*"
+    "chai": "^3.5.0",
+    "codecov.io": "^0.1.6",
+    "istanbul": "^0.4.2",
+    "jsdom": "^9.4.5",
+    "jshint": "^2.9.1",
+    "mocha": "^3.0.2",
+    "should": "^11.1.0",
+    "webpack": "^1.13.1"
   }
 }
